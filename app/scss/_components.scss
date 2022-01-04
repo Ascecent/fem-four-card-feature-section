@@ -13,7 +13,7 @@
 
   &__heading {
     font-size: clamp($fontSizeMainHeadingSm, 4vw, $fontSizeMainHeadingLg);
-    font-weight: $fontWeightLight;
+    font-weight: $fontWeightExtraLight;
 
     line-height: pxToRem(37);
     letter-spacing: -0.01rem;
@@ -28,6 +28,7 @@
 
     @include media-breakpoint-up(lg) {
       margin-block-end: pxToRem(20);
+      line-height: pxToRem(51);
     }
   }
 
@@ -41,6 +42,7 @@
 
     @include media-breakpoint-up(lg) {
       margin-block-end: pxToRem(64);
+      font-size: $fontSizeNormal;
     }
   }
 
