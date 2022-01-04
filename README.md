@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution URL](https://your-solution-url.com)
-- Live Site URL: [Live site URL](https://your-live-site-url.com)
+- Solution URL: [Solution URL](https://www.frontendmentor.io/solutions/four-card-feature-section-with-sass-grid-flexbox-and-bem-wz085Ngjx)
+- Live Site URL: [Live site URL](https://ascecent.github.io/fem-four-card-feature-section/)
 
 ## My process
 
