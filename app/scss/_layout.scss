@@ -1,0 +1,62 @@
+/*=========================================================
+================      LAYOUT STYLES       =================
+=========================================================*/
+
+body {
+  @include media-breakpoint-up(md) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// Feature card
+
+.feature-card {
+  &__cards {
+    display: grid;
+    row-gap: 1.5rem;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: pxToRem(30);
+
+      place-items: center;
+    }
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        "card_l card_c_1 card_r"
+        "card_l card_c_2 card_r";
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      align-self: flex-end;
+    }
+
+    @include media-breakpoint-up(lg) {
+      &--1 {
+        grid-area: card_l;
+      }
+
+      &--2 {
+        grid-area: card_c_1;
+      }
+
+      &--3 {
+        grid-area: card_c_2;
+      }
+
+      &--4 {
+        grid-area: card_r;
+      }
+    }
+  }
+}

@@ -1,0 +1,144 @@
+@use "sass:math";
+
+/*=========================================================
+================       CORE STYLES        =================
+=========================================================*/
+
+// -------------------------------
+// FUNCTIONS
+// -------------------------------
+
+// Convert px to rem units
+@function pxToRem($unit) {
+  @return math.div($unit, 16) + rem;
+}
+
+// -------------------------------
+
+// -------------------------------
+// VARIABLES
+// -------------------------------
+
+// ------------
+// BREAKPOINTS
+// ------------
+
+$breakpoints: (
+  xsm: 400px,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xlg: 1400px,
+);
+
+// ------------
+
+// ------------
+// COLORS
+// ------------
+
+// Primary
+$red: hsl(0, 78%, 62%);
+$cyan: hsl(180, 62%, 55%);
+$orange: hsl(34, 97%, 64%);
+$blue: hsl(212, 86%, 64%);
+
+// Neutral
+$veryDarkBlue: hsl(234, 12%, 34%);
+$grayishBlue: hsl(229, 6%, 66%);
+$veryLightGray: hsl(0, 0%, 98%);
+
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+
+// ------------
+
+// ------------
+// FONTS
+// ------------
+
+// Family
+$fontFamilyPoppins: "Poppins", sans-serif;
+
+// Weights
+$fontWeightExtraLight: 200;
+$fontWeightLight: 300;
+$fontWeightRegular: 400;
+$fontWeightMedium: 500;
+$fontWeightSemibold: 600;
+$fontWeightBold: 700;
+
+// Sizes
+$fontSizeNormal: pxToRem(15);
+
+$fontSizeMainHeadingSm: pxToRem(24);
+$fontSizeMainHeadingLg: pxToRem(36);
+
+$fontSizeSecondaryHeading: pxToRem(20);
+
+$fontSizeParagraphs: pxToRem(16);
+
+// ------------
+
+// -------------------------------
+
+// -------------------------------
+// MIXINS
+// -------------------------------
+
+// Media breakpoint min-width
+@mixin media-breakpoint-up($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// Media breakpoint max-width
+@mixin media-breakpoint-down($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// -------------------------------
+
+// -------------------------------
+// GLOBAL STYLES
+// -------------------------------
+
+body {
+  font: {
+    size: $fontSizeNormal;
+    weight: $fontWeightLight;
+    family: $fontFamilyPoppins;
+  }
+
+  min-height: 100vh;
+  background-color: $veryLightGray;
+  color: $grayishBlue;
+}
+
+h1,
+h2 {
+  font-weight: $fontWeightSemibold;
+  color: $veryDarkBlue;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+// -------------------------------
